@@ -1,0 +1,37 @@
+{
+  "license": "MIT",
+  "engines": {
+    "node": "8"
+  },
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Futourist Cloud Functions",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "bash ./scripts/deploy-functions.sh",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.33.0",
+    "axios": "^0.18.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-pino-logger": "^4.0.0",
+    "express-session": "^1.15.6",
+    "firebase": "^6.3.5",
+    "firebase-admin": "^8.3.0",
+    "firebase-functions": "^3.2.0",
+    "fs-extra": "^8.1.0",
+    "morgan": "^1.9.1",
+    "sharp": "^0.23.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}

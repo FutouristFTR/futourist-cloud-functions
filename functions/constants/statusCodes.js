@@ -1,0 +1,98 @@
+const reviewStatuses = {
+  //0-99: WAITING REVIEW
+  10: "WAITING FOR APPROVAL",
+
+  //100-199: ENABLED REVIEW
+  100: "ENABLED",
+  101: "ENABLED & VERIFIED", // checked by admin or curator
+
+  // 200-299: DISABLED REVIEW
+  // 200-219: TEMPORARILY DISABLED
+  200: "TEMPORARILY DISABLED (UNKNOWN REASON)",
+  201: "TEMPORARILY DISABLED (NON-APPROPRIATE)", // Potentially doesn't fit the Terms and Conditions (profanity, adult content)
+
+  203: "TEMPORARILY DISABLED (PLACE DISABLED)", // Reviewed place was temporarily disabled, it's reviews should also be disabled
+
+  // 220-239: PERMANENTLY DISABLED
+  220: "PERMANENTLY DISABLED (UNKNOWN REASON)",
+  221: "PERMANENTLY DISABLED (NON-APPROPRIATE)", // Detected non-compliance with Terms and Conditions (profanity / adult content / illegal activity / ... )
+  222: "PERMANENTLY DISABLED (BY USER)", // User decided to permanently disable their review
+
+  223: "PERMANENTLY DISABLED (PLACE DISABLED)", // Reviewed place was permanently disabled, it's reviews should also be disabled
+
+  240: "REQUESTED DELETION (GDPR)",
+};
+
+const placeStatuses = {
+  // 0-99: WAITING PLACE
+  0: "ADMIN GENERATED DRAFT",
+  10: "WAITING FOR APPROVAL (USER GENERATED)",
+  11: "WAITING FOR MORE DATA (USER GENERATED DRAFT)",
+
+  // 100-199: ENABLED PLACE
+  100: "ENABLED",
+
+  // 200-299: DISABLED PLACE
+  // 200-219: TEMPORARILY DISABLED
+  200: "TEMPORARILY DISABLED (UNKNOWN REASON)",
+  201: "TEMPORARILY DISABLED (NON-APPROPRIATE)", // Potentially doesn't fit the purpose of the app (strip club)
+  202: "TEMPORARILY DISABLED (NON-EXISTING)", // Potentially fake / non-existing place
+  203: "TEMPORARILY DISABLED (INVALID DATA)", // Potentially the place's data is not correct, should be changed
+
+  // 220-239: PERMANENTLY DISABLED
+  220: "PERMANENTLY DISABLED (UNKNOWN REASON)",
+  221: "PERMANENTLY DISABLED (NON-APPROPRIATE)", // Doesn't fit the purpose of the app (strip club)
+  222: "PERMANENTLY DISABLED (NON-EXISTING)", // Detected fake / non-existing place
+  223: "PERMANENTLY DISABLED (INVALID DATA)", // Place's data has major flaws, should be removed
+};
+
+const userStatuses = {
+  // 100-199: ENABLED USER
+  100: "NEW USER",
+
+  // 110-129: TRUST LEVELS
+  110: "FRESH REVIEWER",
+  111: "REVIEWER LEVEL 1",
+  112: "REVIEWER LEVEL 2",
+  113: "REVIEWER LEVEL 3",
+  114: "REVIEWER LEVEL 4",
+  115: "REVIEWER LEVEL 5",
+  116: "REVIEWER LEVEL 6",
+  117: "REVIEWER LEVEL 7",
+  118: "REVIEWER LEVEL 8",
+  119: "REVIEWER LEVEL 9",
+  120: "REVIEWER LEVEL 10",
+  121: "REVIEWER LEVEL 11",
+  122: "REVIEWER LEVEL 12",
+  123: "REVIEWER LEVEL 13",
+  124: "REVIEWER LEVEL 14",
+  125: "REVIEWER LEVEL 15",
+  126: "REVIEWER LEVEL 16",
+  127: "REVIEWER LEVEL 17",
+  128: "REVIEWER LEVEL 18",
+  129: "REVIEWER LEVEL 19",
+
+  // 200-299: DISABLED USER
+  // 200-219: TEMPORARILY SUSPENDED
+  200: "TEMPORARILY DISABLED (UNKNOWN REASON)",
+  201: "TEMPORARILY DISABLED (FRAUD POTENTIAL)",
+  202: "TEMPORARILY DISABLED (FRAUD DETECTED)",
+  203: "TEMPORARILY DISABLED (PROFANITY/ADULT)",
+  204: "TEMPORARILY DISABLED (SPAM/BOT POTENTIAL)",
+  206: "TEMPORARILY DISABLED (TOS VIOLATION)",
+
+  // 220-239: PERMANENTLY BANNED
+  220: "PERMANENTLY DISABLED (UNKNOWN REASON)",
+  221: "PERMANENTLY DISABLED (FRAUD DETECTED)",
+  222: "PERMANENTLY DISABLED (PROFANITY/ADULT)",
+  224: "PERMANENTLY DISABLED (SPAM/BOT)",
+  225: "PERMANENTLY DISABLED (TOS VIOLATION)",
+
+  240: "REQUESTED DELETION (GDPR)",
+};
+
+module.exports = {
+  reviewStatuses,
+  placeStatuses,
+  userStatuses,
+};
